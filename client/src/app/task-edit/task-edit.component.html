@@ -1,0 +1,15 @@
+<h1>Edit details for {{theOneTask.title}}</h1>
+
+<form (submit)="localTaskEdit()">
+
+  <p><b>Title: </b></p>
+  <input type="text" [(ngModel)]="theUpdatedTask.title" value="{{theOneTask.title}}" name="blah">
+  <p><b>Description: </b></p>
+  <textarea [(ngModel)]="theUpdatedTask.description" name="blah">{{theOneTask.description}}</textarea>
+  <p><select multiple [(ngModel)]="theUpdatedTask.doneyet" name="blah">
+    <option value="true">True</option>
+    <option value="false">False</option>
+    </select>
+  <p><button>SUBMIT</button></p>
+
+</form>

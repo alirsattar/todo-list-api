@@ -1,0 +1,21 @@
+<h1>ALL TASKS LIST</h1>
+
+<div class="tasks-container" *ngFor="let oneTask of tasksArray">
+
+    <h1>{{oneTask.title}}</h1>
+
+    <li>{{oneTask.description}}</li>
+
+    <li>{{oneTask.doneYet}}</li>
+
+    <p><a [routerLink]="['details',oneTask._id]">View Task Details</a></p>
+
+    <hr>
+
+</div>
+
+<!-- <app-task-edit></app-task-edit>
+<app-create-task></app-create-task>
+<app-list-all></app-list-all>
+<app-task-delete></app-task-delete>
+<app-task-details></app-task-details> -->
