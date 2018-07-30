@@ -32,7 +32,6 @@ export class TaskEditComponent implements OnInit {
         .subscribe((theTask)=>{
           this.theOneTask.title = theTask.title;
           this.theOneTask.description = theTask.description;
-
           this.theUpdatedTask.title = theTask.title;
           this.theUpdatedTask.description = theTask.description;
         })

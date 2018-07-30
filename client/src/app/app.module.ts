@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'
-import {HttpModule} from '@angular/http'
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 //Services
-import {TaskServiceService} from './services/task-service.service'
+import {TaskServiceService} from './services/task-service.service';
 
 //Components
 import { AppComponent } from './app.component';
@@ -15,7 +15,10 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
 import { TaskDeleteComponent } from './task-delete/task-delete.component';
 
 //Router
-import {RouterModule, Routes} from '@angular/router'
+import {RouterModule, Routes} from '@angular/router';
+
+import { UserComponent } from './user/user.component';
+import { UserService } from './user.service';
 
 
 const routes: Routes = [
@@ -31,7 +34,8 @@ const routes: Routes = [
     CreateTaskComponent,
     TaskDetailsComponent,
     TaskEditComponent,
-    TaskDeleteComponent
+    TaskDeleteComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [TaskServiceService],
-  bootstrap: [AppComponent]
+  providers: [TaskServiceService, UserService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
