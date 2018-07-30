@@ -1,0 +1,11 @@
+.user-container{
+    display: flex;
+    margin: 50px 100px;
+    justify-content: space-between;
+}
+.page-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}

@@ -1,6 +1,7 @@
-.tasks-container {
-
+.page-container {
     width: 50%;
     margin: 0 auto;
-
+}
+.task-list-heading{
+    text-align: center;
 }

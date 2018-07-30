@@ -11,6 +11,9 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const passport     = require('passport');
+const session      = require('express-session');
+const passportSetup = require('./config/passport');
 
 mongoose.Promise = Promise;
 mongoose
@@ -46,16 +49,33 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+app.use(session({
+  secret: 'angular auth passport secret shh',
+  resave: true,
+  saveUninitialized: true,
+  cookie : { httpOnly: true, maxAge: 2419200000 }
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passportSetup(passport);
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:4200']
+}));
 
 const index = require('./routes/index');
 app.use('/', index);
-const taskRoutes = require('./routes/tasks')
-app.use('/api', taskRoutes)
+
+const taskRoutes = require('./routes/tasks');
+app.use('/api', taskRoutes);
+
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/user', userRoutes);
 
 module.exports = app;

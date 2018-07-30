@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { FormsModule} from '@angular/forms';
+import { HttpModule} from '@angular/http';
 
 //Services
 import {TaskServiceService} from './services/task-service.service';
@@ -18,11 +18,12 @@ import { TaskDeleteComponent } from './task-delete/task-delete.component';
 import {RouterModule, Routes} from '@angular/router';
 
 import { UserComponent } from './user/user.component';
-import { UserService } from './user.service';
+import { User2Service } from './services/user2.service';
 
 
 const routes: Routes = [
-  {path: '', component: ListAllComponent},
+  {path: '', component: UserComponent},
+  {path: 'tasks', component: ListAllComponent},
   {path: 'details/:id', component: TaskDetailsComponent},
   {path: 'details/edit/:id', component: TaskEditComponent}
 ]
@@ -43,7 +44,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [TaskServiceService, UserService],
+  providers: [TaskServiceService, User2Service],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

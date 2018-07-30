@@ -1,3 +1,56 @@
-<p>
-  user works!
-</p>
+<div class="page-container">
+
+  <div class="error-container" *ngIf="errorMessage"><h1>{{errorMessage}}{{errorMessage.message}}</h1></div>
+
+  <div class="login-check" *ngIf="theReturnedUser.username">
+
+    <h1>LOGGED IN AS: {{theReturnedUser.username | json}}</h1>
+      
+  </div>
+
+<div class="signup-container">
+  
+    <h2>Signup Form</h2>
+
+    <form (submit)="tryToSignUp()">
+
+      <label for="username">Username: </label>
+      <input [(ngModel)]="formInput.username" type="text" name="username">
+
+      <p><label for="password">Username: </label>
+      <input [(ngModel)]="formInput.password" type="text" name="password"></p>
+
+      <p><button>Complete Registration</button></p>
+
+    </form>
+  
+</div>
+
+<div class="login-container">
+  
+    <h2>Login Form</h2>
+  
+    <form (submit)="tryToLogIn()">
+  
+      <label for="username">Username: </label>
+      <input [(ngModel)]="loginInput.username" type="text" name="username">
+  
+      <p><label for="password">Username: </label>
+      <input [(ngModel)]="loginInput.password" type="text" name="password"></p>
+  
+      <p><button>Log In</button></p>
+  
+    </form>
+    
+</div>
+
+<div class="logout-container">
+
+  <p><button (click)="tryToLogOut()">LOG OUT</button>
+  <p><button (click)="checkLogin()">CHECK LOGIN</button>
+
+</div>
+
+</div>
+
+<app-list-all></app-list-all>
